@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Organic Honeycrisp Apple",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/apple.png",
+    "price": 2.99,
+    "description": "Organic, delicious Honeycrisp Apple, grown and harvested at a local farm.",
+    "groceryid": 1
+
+  },
+
+  {
+    "name": "Artichoke",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/artichoke.png",
+    "price": 3.49,
+    "description": "Our green Artichokes are produced year round, the highest quality with the freshest taste.",
+    "groceryid": 2
+
+
+  },
+
+  {
+    "name": "Aubergine",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/aubergine.png",
+    "price": 5.49,
+    "description": "Mild, earthy-flavored Aubergine that has the most velvety texture inside.",
+    "groceryid": 3
+  },
+
+  {
+    "name": "Avacado",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/avocado.png",
+    "price": 3.99,
+    "description": "Delicious Hass Avocados have a buttery texture and rich flavor. Ripe and ready to eat!",
+    "groceryid": 4
+  },
+
+  {
+    "name": "Bacon",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/bacon.png",
+    "price": 9.99,
+    "description": "Meat to fat ratio is equal, hand-trimmed bacon.",
+    "gorceryid": 5
+  },
+
+  {
+    "name": "Broccoli",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/artichoke.png",
+    "price": 3.49,
+    "description": "Nutritious and low in calories! Fresh green Broccoli that has a satisfying crunch.",
+    "groceryid": 6
+  },
+
+  {
+    "name": "Candy",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/candy.png",
+    "price": 0.99,
+    "description": "Classic candies in a variety of flavors like lemon, orange, pineapple, raspberry and strawberry.",
+    "gorceryid": 7
+  },
+
+  {
+    "name": "Chili Peppers",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/chili-pepper.png",
+    "price": 1.99,
+    "description": "Bright red, spicy Chili Peppers. Add heat to all of your favorite dishes.",
+    "groceryid": 8
+  },
+
+  {
+    "name": "Crab",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/crab.png",
+    "price": 22.49,
+    "description": "Always fresh, never frozen. Flaky and delicate crab for steaming or stewing.",
+    "gorceryid": 9
+  },
+
+  {
+    "name": "Chocolate Cupcake",
+    "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/cupcake.png",
+    "price": 5.99,
+    "description": "Delicious chocolate cake with buttercream icing. Freshly made by a local bakery.",
+    "groceryid": 10
+  }
+
+  
+]
