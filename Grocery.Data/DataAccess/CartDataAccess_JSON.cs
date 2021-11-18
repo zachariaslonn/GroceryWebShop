@@ -33,17 +33,15 @@ namespace Grocery.Data.DataAccess
 
         public Cart Read()
         {
-            try
-            {
-                var jsonResponse = File.ReadAllText(configuration["ShoppingCartPath"]);
-                return JsonConvert.DeserializeObject<Cart>(jsonResponse);
 
-            }
-            catch (System.Exception)
+            var jsonResponse = File.ReadAllText(configuration["ShoppingCartPath"]);
+            if (string.IsNullOrWhiteSpace(jsonResponse))
             {
-
                 return new Cart();
             }
+            return JsonConvert.DeserializeObject<Cart>(jsonResponse);
+
+ 
 
         }
 
