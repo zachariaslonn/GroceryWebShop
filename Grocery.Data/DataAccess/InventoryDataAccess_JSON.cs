@@ -1,5 +1,6 @@
 ﻿using Grocery.Core.Models;
 using Grocery.Data.DataAccess.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,13 @@ namespace Grocery.Data.DataAccess
 
     public class InventoryDataAccess_JSON : IInventoryDataAccess
     {
+        private readonly IConfiguration configuration;
+
+        public InventoryDataAccess_JSON(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
         public List<Product> GetAll()
         {
             return Read();
@@ -22,15 +30,24 @@ namespace Grocery.Data.DataAccess
 
         public List<Product> Read() //Read inventory Jsonfile
         {
-            var jsonResponse = File.ReadAllText(@"C:\Users\gongm\source\repos\Grocery\Grocery.Data\DataSource\Inventory_JSON.json");
-            return JsonConvert.DeserializeObject<List<Product>>(jsonResponse);
+            try
+            {
+                var jsonResponse = File.ReadAllText(configuration["InventoryPath"]);
+                return JsonConvert.DeserializeObject<List<Product>>(jsonResponse);
+            }
+            catch (System.Exception)
+            {
+
+                return new List<Product>();
+            }
+
 
         }
 
         public void Write(List<Product> list) //Save to Jsonfile
         {
             var jsonString = JsonConvert.SerializeObject(list);
-            File.WriteAllText(@"C:\Users\gongm\source\repos\Grocery\Grocery.Data\DataSource\Inventory_JSON.json", jsonString);
+            File.WriteAllText(configuration["InventoryPath"], jsonString);
 
         }
     }

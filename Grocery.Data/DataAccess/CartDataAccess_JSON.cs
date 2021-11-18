@@ -1,5 +1,6 @@
 ﻿using Grocery.Core.Models;
 using Grocery.Data.DataAccess.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +9,13 @@ namespace Grocery.Data.DataAccess
 {
     public class CartDataAccess_JSON : ICartDataAccess
     {
+        private readonly IConfiguration configuration;
+
+        public CartDataAccess_JSON(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
         public Cart GetById(int id)
         {
             var cart = Read();
@@ -25,14 +33,24 @@ namespace Grocery.Data.DataAccess
 
         public Cart Read()
         {
-            var jsonResponse = File.ReadAllText(@"C:\Users\gongm\source\repos\Grocery\Grocery.Data\DataSource\ShoppingCart.json");
-            return JsonConvert.DeserializeObject<Cart>(jsonResponse);
+            try
+            {
+                var jsonResponse = File.ReadAllText(configuration["ShoppingCartPath"]);
+                return JsonConvert.DeserializeObject<Cart>(jsonResponse);
+
+            }
+            catch (System.Exception)
+            {
+
+                return new Cart();
+            }
+
         }
 
         public void Write(Cart cart)
         {
             var jsonString = JsonConvert.SerializeObject(cart);
-            File.WriteAllText(@"C:\Users\gongm\source\repos\Grocery\Grocery.Data\DataSource\ShoppingCart.json", jsonString);
+            File.WriteAllText(configuration["ShoppingCartPath"], jsonString);
         }
     }
 }
