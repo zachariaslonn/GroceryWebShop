@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31829.152
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.WebShop.UI", "Grocery.WebShop.UI\Grocery.WebShop.UI.csproj", "{1D063A78-9663-4AB1-B308-2CCB70A5E0F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.WebShop.UI", "Grocery.WebShop.UI\Grocery.WebShop.UI.csproj", "{1D063A78-9663-4AB1-B308-2CCB70A5E0F5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Data", "Grocery.Data\Grocery.Data.csproj", "{F7D68B51-B772-42F6-BA3A-A0A44FDA65A5}"
 EndProject

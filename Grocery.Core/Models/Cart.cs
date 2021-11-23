@@ -6,15 +6,18 @@ namespace Grocery.Core.Models
 {
     public class Cart
     {
-        public List<Product> Products { get; set; } = new List<Product>();
-
-        public string CartId { get; set; }
+        public List<Product> Products { get; set; }
+       
+        public int CartId { get; set; }
 
         public DateTime DateCreated { get; set; }
 
-        public double CalculateTotalPrice()
+        public double GetTotalCost()
         {
             return Products.Sum(x => x.Price);
         }
+        
+        
+       
     }
 }

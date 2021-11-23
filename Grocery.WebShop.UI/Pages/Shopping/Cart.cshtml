@@ -1,0 +1,35 @@
+﻿@page
+@model Grocery.WebShop.UI.Pages.CartModel
+@{
+}
+
+<div id="food-container">
+    @for(int i = 0; i < @Model.CartItems.Count; i++)
+    {
+        <div class="food-item pb-2 pt-2 row align-items-center">
+            <div class="col-3 pl-1 pr-1 text-center" id="image-col">
+                <img style="height:10rem" class="food-item-image" src=@Model.CartItems[i].ImageSrc alt=@Model.CartItems[i].Name>
+            </div>
+            <div class="col-6 pl-1 pr-1 font-weight-bold" id="info-col">
+                <p class="food-item-info">@Model.CartItems[i].Name</p>
+                <p class="food-item-info text-warning">$@String.Format("{0:0.00} / lb", Model.CartItems[i].Price)</p>
+            </div>
+            <div class="col-3 pl-1 pr-1 text-center" id="button-col">
+                <a asp-page="/Shopping/Cart" asp-route-id="@Model.CartItems[i].GroceryID" class="btn btn-success btn-lg">Details</a>
+                <a asp-page="/Shopping/Cart" asp-route-id="@i" asp-page-handler="Remove" class="btn btn-success btn-lg">Remove</a>
+            </div>
+
+        </div>
+    }
+
+</div>
+ 
+
+<div id="back-button" class="text-center">
+    <a asp-page="/Index" class="btn btn-success btn-lg">
+        Back To home
+    </a>
+</div>
+<form asp-page-handler="Checkout">
+        <button type="submit" class="btn btn-primary">Checkout</button>
+ </form>

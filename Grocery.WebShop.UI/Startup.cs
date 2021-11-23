@@ -2,14 +2,9 @@ using Grocery.Data.DataAccess;
 using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Grocery.WebShop.UI
 {
@@ -25,8 +20,9 @@ namespace Grocery.WebShop.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ICartDataAccess, CartDataAccess_JSON>();
-            services.AddScoped<IInventoryDataAccess, InventoryDataAccess_JSON>();
+            services.AddSingleton<ICartDataAccess, CartDataAccess_JSON>();
+            services.AddSingleton<IInventoryDataAccess, InventoryDataAccess_JSON>();
+            services.AddSingleton<ICustomerDataAccess, CustomerDataAccess_JSON>();
             services.AddRazorPages();
         }
 

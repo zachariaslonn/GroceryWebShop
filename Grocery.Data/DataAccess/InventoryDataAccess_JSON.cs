@@ -13,6 +13,11 @@ namespace Grocery.Data.DataAccess
     {
         private readonly IConfiguration configuration;
 
+        //public InventoryDataAccess_JSON(DataProduct datasource)
+        //{
+        //    this.datasource = datasource;
+        //}
+
         public InventoryDataAccess_JSON(IConfiguration configuration)
         {
             this.configuration = configuration;
@@ -48,7 +53,12 @@ namespace Grocery.Data.DataAccess
         {
             var jsonString = JsonConvert.SerializeObject(list);
             File.WriteAllText(configuration["InventoryPath"], jsonString);
+        }
 
+        IEnumerable<Product> IInventoryDataAccess.GetAll()
+        {
+            var jsonResponse = File.ReadAllText(configuration["InventoryPath"]);           
+            return JsonConvert.DeserializeObject<IEnumerable<Product>>(jsonResponse);
         }
     }
 }

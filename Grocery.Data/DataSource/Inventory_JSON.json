@@ -39,7 +39,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/bacon.png",
     "price": 9.99,
     "description": "Meat to fat ratio is equal, hand-trimmed bacon.",
-    "gorceryid": 5
+    "groceryid": 5
   },
 
   {
@@ -55,7 +55,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/candy.png",
     "price": 0.99,
     "description": "Classic candies in a variety of flavors like lemon, orange, pineapple, raspberry and strawberry.",
-    "gorceryid": 7
+    "groceryid": 7
   },
 
   {
@@ -71,7 +71,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/crab.png",
     "price": 22.49,
     "description": "Always fresh, never frozen. Flaky and delicate crab for steaming or stewing.",
-    "gorceryid": 9
+    "groceryid": 9
   },
 
   {

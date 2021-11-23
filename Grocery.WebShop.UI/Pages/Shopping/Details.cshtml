@@ -22,24 +22,14 @@
 
 
 <div id="pricing-container" class="d-flex font-weight-bold">
-    <span id="unit-price" class="d-none">@Model.Product.Price</span>
-    <div class="col text-left">
-        <form method="post">
-            <label for="quantity">Quantity:</label>
-            <input type="number" asp-for="Quantity" value="1">
-        </form>
-    </div>
+    <span id="unit-price" class="d-none">@Model.Product.Price</span>   
 
     <div class="col text-right">
         Total: $<span id="total-price">@(Model.Product.Price )</span>
     </div>
-    <br />
-    <form asp-page-handler="Add">
-        <input type="hidden" asp-for="Id" value="@Model.Product.GroceryID" />
-        <div id="buy-button" class="text-right">
-            <button type="submit" class="btn btn-primary">Add to cart</button>
-        </div>
-    </form>
+    <br />   
+    <a asp-page="/Shopping/Cart" asp-route-id="@Model.Product.GroceryID" asp-page-handler="Add" class="btn btn-primary">Add to cart</a>
+   
 
 
 </div>
@@ -52,3 +42,4 @@
         Back To home
     </a>
 </div>
+
