@@ -9,8 +9,8 @@ namespace Grocery.Core.Models
     public class Order
     {
         public List<Product> Products { get; set; } = new List<Product>();
-        public int OrderId { get; set; }
-        public string Key { get; set; }
+        public Guid OrderId { get; set; }
+        public int Key { get; set; }
         public bool IsPaid { get; set; } = false;
 
         
