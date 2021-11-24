@@ -2,6 +2,7 @@ using Grocery.Core.Models;
 using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 
 namespace Grocery.WebShop.UI.Pages
@@ -10,16 +11,20 @@ namespace Grocery.WebShop.UI.Pages
     {
         private readonly ICartDataAccess cartDataAccess;
         private readonly IInventoryDataAccess inventoryDataAccess;
+        private readonly ICustomerDataAccess customerDataAccess;
+        private readonly IOrderDataAccess orderDataAccess;
         private const int LoggedInCustomer = 21;
         public List<Product> CartItems { get; set; }
+        public Cart ShoppingCart { get; set; } 
+        public Order Order { get; set; }
 
-        public Cart ShoppingCart { get; set; }
-
-        public CartModel(ICartDataAccess cartDataAccess, IInventoryDataAccess inventoryDataAccess)
+        public CartModel(ICartDataAccess cartDataAccess, IInventoryDataAccess inventoryDataAccess, ICustomerDataAccess customerDataAccess, IOrderDataAccess orderDataAccess)
         {
-            CartItems = new List<Product>();
+            CartItems = new List<Product>(); 
             this.cartDataAccess = cartDataAccess;
             this.inventoryDataAccess = inventoryDataAccess;
+            this.customerDataAccess = customerDataAccess;
+            this.orderDataAccess = orderDataAccess;
         }
 
 
@@ -29,7 +34,14 @@ namespace Grocery.WebShop.UI.Pages
         {            
             var items = cartDataAccess.GetById(LoggedInCustomer);
             CartItems = items.Products;
+            Customer customer = customerDataAccess.GetById(LoggedInCustomer); 
+            if (customer != null)
+            {
+                Order = new Order() { IsPaid = true, Products = CartItems, CustomerId = LoggedInCustomer, OrderId = Guid.NewGuid() }; //Create an order. 
 
+                orderDataAccess.Save(Order);
+            }
+            
             return Page();
         }
 
@@ -59,10 +71,9 @@ namespace Grocery.WebShop.UI.Pages
         }
 
 
-
-        public IActionResult OnPostPayment()
+        public IActionResult OnPostPayment() //id = CustomerId from cart page
         {
-            return RedirectToPage("/Shopping/Payment");
+            return RedirectToPage("/Shopping/Payment", Order);
         }
     }
 }

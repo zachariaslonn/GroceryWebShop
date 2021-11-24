@@ -10,7 +10,7 @@ namespace Grocery.Core.Models
     {
         public List<Product> Products { get; set; } = new List<Product>();
         public Guid OrderId { get; set; }
-        public int Key { get; set; }
+        public int CustomerId { get; set; }
         public bool IsPaid { get; set; } = false;
 
         

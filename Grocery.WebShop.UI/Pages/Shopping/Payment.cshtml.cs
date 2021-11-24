@@ -24,26 +24,20 @@ namespace Grocery.WebShop.UI.Pages.Shopping
             this.orderDataAccess = orderDataAccess;
         }
         public List<Product> ShoppingCart { get; set; }
-
         public Customer ThisCustomer { get;  set; }
+        
         public void OnGet(int id)//CustomerId from cart page
         {
             ThisCustomer = customerDataAccess.GetById(id);//Gets Customer by id
-            ShoppingCart = cartDataAccess.GetAll().ToList();//Gets all items in cart
-
+            ShoppingCart = cartDataAccess.GetAll().ToList();//Gets all items in cart          
         }
+       
 
-        public void OnPost(int id) //id = CustomerId from cart page
-        {
-            //var customer = customerDataAccess.GetById(id);//Gets Customer by id.          
+        //public IActionResult OnPostPayment()
+        //{
+        //    return RedirectToPage("/Receipt", order);     //Send order to /Receipt, OnGet()??
 
-            if (ThisCustomer != null)
-            {
-                var order = new Order() { IsPaid = true, Products = ShoppingCart, Key = id, OrderId = Guid.NewGuid() }; //Create an order. 
-
-                orderDataAccess.SaveOrder(order);
-            } 
-        }
+        //}
 
         //public void OnGet(int id)            //CustomerId from cart page
         //{

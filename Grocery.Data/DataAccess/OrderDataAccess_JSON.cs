@@ -31,15 +31,12 @@ namespace Grocery.Data.DataAccess
         public void Save(Order order) //If the customerId and orderId is the same as the order that's to be saved, remove the old order and save a new one.
         {
             List<Order> orders = GetAll().ToList();
-            orders.RemoveAll(o =>( o.Key == order.Key) && (o.OrderId == order.OrderId));
+            orders.RemoveAll(o =>( o.CustomerId == order.CustomerId) && (o.OrderId == order.OrderId));
             orders.Add(order);
             var jsonText = JsonConvert.SerializeObject(orders);
             File.WriteAllText(configuration["OrderPath"], jsonText);
         }
 
-        public void SaveOrder(Order order)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }
