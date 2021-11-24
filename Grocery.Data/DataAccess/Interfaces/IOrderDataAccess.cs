@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Grocery.Data.DataAccess.Interfaces
 {
-    public interface IOrder
+    public interface IOrderDataAccess
     {
         IEnumerable<Order> GetAll();
 

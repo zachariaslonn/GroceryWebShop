@@ -1,4 +1,5 @@
 ﻿using Grocery.Core.Models;
+using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace Grocery.Data.DataAccess
 {
-    public class OrderDataAccess_JSON
+    public class OrderDataAccess_JSON : IOrderDataAccess
     {
         private readonly IConfiguration configuration;
 
@@ -22,6 +23,11 @@ namespace Grocery.Data.DataAccess
             return JsonConvert.DeserializeObject<List<Order>>(jsonText);
         }
 
+        public Order GetById(System.Guid Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void Save(Order order) //If the customerId and orderId is the same as the order that's to be saved, remove the old order and save a new one.
         {
             List<Order> orders = GetAll().ToList();
@@ -31,7 +37,9 @@ namespace Grocery.Data.DataAccess
             File.WriteAllText(configuration["OrderPath"], jsonText);
         }
 
-
-
+        public void SaveOrder(Order order)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

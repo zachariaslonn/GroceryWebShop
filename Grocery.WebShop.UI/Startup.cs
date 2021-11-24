@@ -23,6 +23,7 @@ namespace Grocery.WebShop.UI
             services.AddSingleton<ICartDataAccess, CartDataAccess_JSON>();
             services.AddSingleton<IInventoryDataAccess, InventoryDataAccess_JSON>();
             services.AddSingleton<ICustomerDataAccess, CustomerDataAccess_JSON>();
+            services.AddSingleton<IOrderDataAccess, OrderDataAccess_JSON>();
             services.AddRazorPages();
         }
 

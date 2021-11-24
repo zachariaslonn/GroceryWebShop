@@ -13,11 +13,11 @@ namespace Grocery.WebShop.UI.Pages.Shopping
 
         private readonly ICartDataAccess cartDataAccess;
         private readonly ICustomerDataAccess customerDataAccess;
-        private readonly IOrder orderDataAccess;
+        private readonly IOrderDataAccess orderDataAccess;
 
         //private const int LoggedInCustomer = 21;
 
-        public PaymentModel(ICartDataAccess cartDataAccess, ICustomerDataAccess customerDataAccess, IOrder orderDataAccess)
+        public PaymentModel(ICartDataAccess cartDataAccess, ICustomerDataAccess customerDataAccess, IOrderDataAccess orderDataAccess)
         {
             this.cartDataAccess = cartDataAccess;
             this.customerDataAccess = customerDataAccess;

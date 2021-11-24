@@ -12,6 +12,7 @@ namespace Grocery.Data.DataAccess.Interfaces
         Customer GetById(int id);
         void Add(Customer customer);
         int GetNewId();
+        public IEnumerable<Customer> GetAllCustomers();
 
     }
 }

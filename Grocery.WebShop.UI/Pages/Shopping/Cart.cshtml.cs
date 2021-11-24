@@ -56,7 +56,7 @@ namespace Grocery.WebShop.UI.Pages
 
         public IActionResult OnPostCheckout()
         {
-            return RedirectToPage("/Shopping/Checkout");
+            return RedirectToPage("/Shopping/Payment");
         }
     }
 }
