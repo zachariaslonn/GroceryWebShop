@@ -21,6 +21,10 @@ namespace Grocery.WebShop.UI.Pages
             this.cartDataAccess = cartDataAccess;
             this.inventoryDataAccess = inventoryDataAccess;
         }
+
+
+        [BindProperty]
+        public int custId { get; set; }
         public IActionResult OnGet()//Show the content of the cart.
         {            
             var items = cartDataAccess.GetById(LoggedInCustomer);
@@ -54,7 +58,9 @@ namespace Grocery.WebShop.UI.Pages
             return RedirectToPage("/Shopping/Cart"); //Back to shopping cart.
         }
 
-        public IActionResult OnPostCheckout()
+
+
+        public IActionResult OnPostPayment()
         {
             return RedirectToPage("/Shopping/Payment");
         }

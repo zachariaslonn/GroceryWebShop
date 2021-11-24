@@ -30,6 +30,7 @@
         Back To home
     </a>
 </div>
-<form asp-page-handler="Checkout">
-        <button type="submit" class="btn btn-primary">Checkout</button>
+<form asp-page-handler="Payment">
+        <button type="submit" class="btn btn-primary">Place order</button>
+        <input asp-for="custId" placeholder="Type id">
  </form>
